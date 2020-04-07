@@ -1,0 +1,102 @@
+<?php
+
+//echo 'INDEXPHTML';
+
+//echo __DIR__;
+//print_r($_SERVER);
+//require_once($_SERVER['DOCUMENT_ROOT'] . '..\application\Views\Index\Index.css');
+//include(__DIR__ . '\Index.css');
+
+
+
+ob_start();
+
+echo '<style type="text/css">';
+include(__DIR__ . '\CreateMenu.css');
+
+echo '</style>';
+
+echo '<script type="text/javascript">';
+include (__DIR__ . '\CreateMenu.js');
+echo '</script>';
+
+$css_js = ob_get_contents();
+
+
+ob_end_clean();
+
+
+
+//<link rel = "stylesheet" href="application/Views/Index/Index.css">
+//<link rel = "stylesheet" href="/Index.css">
+//<script type="text/javascript" src = "/application/Views/Index/Index.js"></script>
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<?php
+ //echo $css_js;
+ ?>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="/main/css/menu_main.css" rel="stylesheet"></link>
+  	<link href="/main/css/menu_filtr.css" rel="stylesheet"></link>
+	
+
+</head>
+<body>
+
+<?php
+//print_r($this->modelData);
+//print_r($_REQUEST);
+
+$i = 0;
+
+echo Sayt::createToGeneral('/users/usersOborud', 'Назад');
+echo '<br>';
+echo '<br>';
+
+if( empty($this->modelData['menu']) ) {
+	echo "Меню не определено";
+}
+else {
+	echo $this->modelData['menu'];
+}
+
+
+
+
+?>
+<form action="/users/adminEditMenu" method="get" >
+	<br> Добавить пункт меню
+	<br>
+	<input type="text" name="addMenu"> <?php echo $this->modelData['select']; ?>
+	<button type='submit' >Добавить</button>
+</form>
+
+<br>
+Результат:
+
+
+<br>
+<br>
+<form action="/users/exit" method="get" >
+	<button type='submit' >Выход</button>
+</form>
+
+
+<div>text shablona</div>
+
+
+
+
+
+</body>
+</html>

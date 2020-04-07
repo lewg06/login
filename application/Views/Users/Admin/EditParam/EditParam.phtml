@@ -1,0 +1,108 @@
+<?php
+
+//echo 'INDEXPHTML';
+
+//echo __DIR__;
+//print_r($_SERVER);
+//require_once($_SERVER['DOCUMENT_ROOT'] . '..\application\Views\Index\Index.css');
+//include(__DIR__ . '\Index.css');
+
+
+
+ob_start();
+
+echo '<style type="text/css">';
+include(__DIR__ . '\CreateMenu.css');
+
+echo '</style>';
+
+echo '<script type="text/javascript">';
+include (__DIR__ . '\CreateMenu.js');
+echo '</script>';
+
+$css_js = ob_get_contents();
+
+
+ob_end_clean();
+
+
+
+//<link rel = "stylesheet" href="application/Views/Index/Index.css">
+//<link rel = "stylesheet" href="/Index.css">
+//<script type="text/javascript" src = "/application/Views/Index/Index.js"></script>
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<?php echo $css_js; ?>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="/main/css/menu_main.css" rel="stylesheet"></link>
+  	<link href="/main/css/menu_filtr.css" rel="stylesheet"></link>
+	
+
+</head>
+<body>
+<div>
+<img src="/main/img/img/customized1.png">
+</div>
+<div>
+</div>
+
+<?php
+//print_r($this->modelData);
+//print_r($_REQUEST);
+
+$i = 0;
+
+echo Sayt::createToGeneral('/users/usersOborud', 'Назад');
+echo '<br>';
+echo '<br>';
+
+if( empty($this->modelData['param']) ) {
+	echo "Создайте параметры оборудования";
+}
+else {
+	foreach($this->modelData['param'] as $row=>$param){
+		echo '<br>' . $param['nom'] . '  -  ' . $param['name'] . ' - ' . $param['type'];
+	}
+}
+
+?>
+<form action="/users/adminEditParam" method="get" >
+	<br> Добавить параметр и тип параметра для оборудования
+	<br>
+	<input type="text" name="addParam"> <?php echo $this->modelData['selectparamtype']; ?>
+	<button type='submit' >Добавить параметр</button>
+
+<br>
+
+	<br> Изменить название или тип параметра
+	<br>
+	<input type="text" name="oldParam">
+	<input type="text" name="newParam">
+	<input type="text" name="oldType">
+	<?php echo $this->modelData['selectchangeparamtype']; ?>
+	<button type='submit' >Редактировать параметр</button>
+</form>
+
+<br>
+<br>
+<form action="/users/exit" method="get" >
+	<button type='submit' >Выход</button>
+</form>
+
+
+<div>text shablona</div>
+
+
+
+</body>
+</html>

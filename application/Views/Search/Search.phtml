@@ -1,0 +1,90 @@
+<?php
+
+//echo 'SEARCHPHTML';
+
+//echo __DIR__;
+//print_r($_SERVER);
+//require_once($_SERVER['DOCUMENT_ROOT'] . '..\application\Views\Index\Index.css');
+//include(__DIR__ . '\Index.css');
+
+ob_start();
+echo '<style type="text/css">';
+include(__DIR__ . '\Search.css');
+
+echo '</style>';
+
+echo '<script type="text/javascript">';
+include (__DIR__ . '\Search.js');
+echo '</script>';
+
+$css_js = ob_get_contents();
+
+
+ob_end_clean();
+
+
+
+//<link rel = "stylesheet" href="application/Views/Index/Index.css">
+//<link rel = "stylesheet" href="/Index.css">
+//<script type="text/javascript" src = "/application/Views/Index/Index.js"></script>
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<?php echo $css_js; ?>
+	<link href="/main/css/menu_main.css" rel="stylesheet"></link>
+  	<link href="/main/css/menu_filtr.css" rel="stylesheet"></link>
+	
+
+</head>
+<body>
+<div>
+<img src="/main/img/img/customized1.png">
+</div>
+<div>
+</div>
+<form action="/search">
+	<input name="search" type="text">
+	<input name="submit" type="submit">
+</form>
+
+<?php include (PUT_LIB . '/Dailywear/Elements/Menu/menu.phtml'); ?>
+<br>
+<?php include(PUT_LIB . '/Dailywear/Elements/Menu/menu_filtr/menu_filtr_all.phtml'); ?>
+<br>
+<?php include(PUT_LIB . '/Dailywear/Elements/Menu/menu_filtr_1.phtml'); ?>
+<div>text shablona</div>
+<?php
+//echo $this->modelData;
+ini_set('max_execution_time', 900);
+
+if ( !count($_SESSION['page']) == 0 ) {
+	echo 'ПО вашему запросу ничего не найдено! Попробуйте поменять условия для поиска!';
+} else {
+	foreach ($_SESSION['page'][$_SESSION['select_page']] as $ar=>$id) {
+		
+		//echo "<div id='$ar' class='div_karta' style='background:white; box-shadow: 0 0 10px rgba(0,0,0,0.5);width:228px;height: 288px;border:1px solid green;margin:10px; overflow:hidden; position : absolute;  left: %%left%%px; top:%%top%%px;'>";
+		echo "<div id='div_karta$ar' class='div_karta' style='background:white; box-shadow: 0 0 10px rgba(0,0,0,0.5);width:228px;height: 288px;border:1px solid green;margin:10px; overflow:hidden; float: left;'>";
+		echo "<div style='text-align:center; width:98%; height:150px; padding: 3px; position:absolute;'>";
+		echo "<a href= '/tovari/id$ar/id$ar.phtml' ><img name='pic' style='padding: 5px;'  src='" . $id['picture'] . "'></img></a>";
+		echo "</div>";
+		echo "<div style='position: absolute; width:98%; top:55%;'>";
+		echo "<div style='text-align:center;width:100%;'>". $id['vendor'] . " " . $id[''name] . "</div>";
+		echo "<div style='text-align:center;'>Цена: " . $id['price'] . " </div>";
+		echo "<div class='razmeri' style='width:100%;text-align:center;'>	" . PUT_LIB/Dailywear/Create::createOptions($id['options']) . "	</div>";
+		echo "<div name='korzina' style='text-align:center; width:100%;' ><a href='#' name='korzina' onclick='add_korzina(" . $ar . ", " . $id['price'] . ");' style='background:cyan;margin:3%;'>Добавить в корзину</a></div>";
+		echo "</div></div>";
+	}
+	echo PUT_LIB/Dailywear/Create::createAhref( $_SESSION['page'][$_SESSION['select_page']], $_SESSION['zapros'], $_SESSION['select_page'] );
+}
+?>
+
+</body>
+</html>

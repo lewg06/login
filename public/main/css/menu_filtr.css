@@ -1,0 +1,20 @@
+
+.filtr_submenu {display:none;}
+li:hover > .filtr_submenu {display:block;}
+
+.filtr_main > li {  float: left;  position: relative;  border-left: 1px solid black;}
+
+.filtr_main ul {display:none;background-color:#f90;position:absolute;top:100%;}
+.filtr_submenu ul {}
+
+.filtr_main,.filtr_main ul {margin:0;padding:0;list-style-type:none;}
+.filtr_submenu{min-width:220px;}
+
+.menu ul li {float:none;}
+.filtr li {background-color: #f90;}
+.filtr_main li:hover {background-color: #f90;}
+.filtr_main ul li:hover {background-color: #666;}
+.filtr_main a {text-decoration: none; display: inline-block; background-color: #f90;}
+
+.div_filtr_main {position:relative; float:left;}
+.div_filtr_submenu {position:relative; float:left;}

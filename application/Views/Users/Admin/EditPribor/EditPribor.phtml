@@ -1,0 +1,159 @@
+<?php
+
+//echo 'INDEXPHTML';
+
+//echo __DIR__;
+//print_r($_SERVER);
+//require_once($_SERVER['DOCUMENT_ROOT'] . '..\application\Views\Index\Index.css');
+//include(__DIR__ . '\Index.css');
+
+
+
+ob_start();
+
+echo '<style type="text/css">';
+include(__DIR__ . '\CreateMenu.css');
+
+echo '</style>';
+
+echo '<script type="text/javascript">';
+include (__DIR__ . '\CreateMenu.js');
+echo '</script>';
+
+$css_js = ob_get_contents();
+
+
+ob_end_clean();
+
+
+
+//<link rel = "stylesheet" href="application/Views/Index/Index.css">
+//<link rel = "stylesheet" href="/Index.css">
+//<script type="text/javascript" src = "/application/Views/Index/Index.js"></script>
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<?php echo $css_js; ?>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="/main/css/menu_main.css" rel="stylesheet"></link>
+  	<link href="/main/css/menu_filtr.css" rel="stylesheet"></link>
+	
+
+</head>
+<body>
+<div>
+<img src="/main/img/img/customized1.png">
+</div>
+<div>
+</div>
+
+<?php
+//print_r($this->modelData);
+//print_r($_REQUEST);
+
+$i = 0;
+//print_r($_SERVER);
+
+echo Sayt::createToGeneral('/users/usersOborud', 'Назад');
+
+echo '<br>';
+echo '<br>';
+
+?>
+<form action="/users/adminEditPribor" method="get" >
+	<?php
+		if( empty($this->modelData['pribor']) ) {
+			echo "Добавьте оборудование и привяжите параметры";
+			echo "<br><br>";
+		}
+		else {
+			foreach($this->modelData['pribor'] as $row=>$param){
+				//echo '<br><a href="/users/adminEditPribor?pribortip=' . $param['nom'] . '">' . $param['name'] . '</a>';
+				echo '<br><button type="submit" name="pribortip" value="' . $param['nom'] . '" >' . $param['name'] . '</button>';
+			}
+		}
+	?>
+	
+	<br>
+	<br>
+	<br> Добавить новое оборудование
+	<br>
+	<input type="text" name="addPribor">
+	<button type='submit' >Добавить тип оборудования</button>
+	<br>
+	<br>___________________________________________________
+	<br>
+	<br>
+	
+	<?php
+		if(empty($this->modelData['priborparam']) ){
+			echo 'Отметьте галочками и нажмите сохранить для привязки параметров к оборудованию';
+		}
+		else{
+			//echo '<form action="/users/adminEditPribor" method="get">';
+			if(!empty($this->modelData['pribortip'])){
+				echo '<button type="submit" name="addpribortip" value="' . $this->modelData['pribortip'] . '">Редактировать параметры оборудования: ' . $this->modelData['priborname'] . '</button>';
+			}
+			foreach($this->modelData['priborparam'] as $row=>$data){
+				if(!empty($data['checked'])){
+					echo '<p><input type="checkbox" checked name="checkboxpriborparam' . $data['nom'] . '" value="' . $data['name'] . '">' . $data['name'] . ' - тип поля: ' . $data['type'] .'</p>';
+				}
+				else {
+					echo '<p><input type="checkbox" name="checkboxpriborparam' . $data['nom'] . '" value="' . $data['name'] . '">' . $data['name'] . ' - тип поля: ' . $data['type'] . '</p>';
+				}
+			}
+			foreach($this->modelData['priborparam2'] as $ar=>$data){
+				echo '<p><input type="checkbox" name="checkboxpriborparam' . $data['nom'] . '" value="' . $data['name'] . '">' . $data['name'] . ' - тип поля: ' . $data['type'] . '</p>';
+			}
+			//echo '</form>';
+		}
+
+		print_r( $_REQUEST); 
+	
+	?>	
+	
+</form>
+<form action="/users/editBrowsePriborParam" type="get">
+
+	<?php
+		if(!empty($this->modelData['err'])){
+			foreach($this->modelData['err']['ar'] as $ar=>$ind){
+				echo "<br><button type='submit' name='browsepriborparam' value='" . $ind . "' >" . $this->modelData['err']['name'][$ar] . "</button>";
+			}
+			print_r( $this->modelData['err']); 
+			print_r($this->modelData['priborparam2']);
+		}
+		
+	?>
+
+</form>
+
+<br>
+<br>
+<form action="/users/adminEditParam" method="get">
+	<button type="submit" >Редактировать параметры оборудования</button>
+</form>
+<br>
+
+<br>
+<br>
+<form action="/users/exit" method="get" >
+	<button type='submit' >Выход</button>
+</form>
+
+
+<div>text shablona</div>
+
+
+
+</body>
+</html>

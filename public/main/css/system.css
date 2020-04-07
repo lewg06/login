@@ -1,0 +1,40 @@
+body1 {font-family: "10360" , sans-serif; font-size: 20px;}
+body1 {font-family: "10359" , sans-serif; font-size: 15px;}
+body1 {font-family: "10930" , sans-serif; font-size: 20px;}
+body1 {font-family: "9581" , sans-serif; font-size: 20px;}
+body {font-family: 'Indie Flower', cursive; font-size:15px;}
+
+.shapka_pic{padding:0;margin:0;height:220px;width:90%; }
+.korzina{height:100%; position:absolute; right:10%;}
+.sdvig{position:relative;left:5%;padding:0;margin:0;}
+.tel{font-family: 'Abril Fatface', cursive;}
+.div_karta {background:white;}
+.razmeri_ul {}
+
+
+.razmeri_li_yes { background: yellow; }
+.razmeri_li_no { background:grey;}
+.razmeri_li_yes_vibor {background:red;}
+.razmeri_li_yes, .razmeri_li_no, .razmeri_li_yes_vibor {position:relative;display: inline-block; border-radius: 3px 3px 3px 3px;  margin:2px; border:2px solid black; padding:1px;}
+.razmeri_ul {}
+.razmeri_div {position:relative; text-align:center;width:100%;}
+
+.korzina_no_li, .korzina_yes_li, .korzina_clear_li, .korzina_pusto_li, .korzina_tovar_li  {list-style-type: none;}
+.korzina_yes_li, .korzina_clear_li, .korzina_pusto_li, .korzina_tovar_li {display:none;}
+
+.korzina_div {position:absolute; right:0%; top:0%; width:18%;height: 100%; background: silver;z-index:2;}
+.korzina_li a {}
+
+.korzina_ul {margin: 0;  padding: 0;}
+
+
+.korzina_ul li {}
+
+////////////
+#menu {font-family: 'Bree Serif', serif;}
+ a {font-family: Geneva, Arial, Helvetica, sans-serif;}
+li > a {font-style: italic;font-weight: 600;font-variant: small-caps;font-stretch: ultra-expanded;}
+li {margin:5px;}
+ul li {background: #DAF2F3;}
+
+

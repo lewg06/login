@@ -1,0 +1,42 @@
+
+.submenu {visibility: hidden; opacity: 0;}
+li:hover > .submenu {visibility: visible; opacity: 1;}
+
+.menu > li {  float: left;  position: relative;  border-left: 1px solid black;}
+
+.menu ul {display:none;background-color:#f90;position:absolute;top:100%;}
+
+.menu li ul {display:none;}
+.menu li:hover ul {display:block;}
+.menu,.menu ul {margin:0;padding:0;list-style-type:none;}
+.menu{min-width:500px;}
+
+.submenu li {float:left;position:relative;}
+
+.menu ul li {float:none;}
+.menu li:hover {background-color: #f90;}
+.menu ul li:hover {background-color: #666;}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,cyrillic);
+*{box-sizing: border-box;}
+.menu {background: #413F3C;}
+.menu ul {  margin: 0;  padding: 0;  list-style: none;}
+.menu ul:after {  content: "";  display: table;  clear: both;}
+.menu a {  text-decoration: none;  display: block;  transition: .3s linear;}
+.menu > li {  float: left;  position: relative;  border-left: 1px solid black;}
+.menu > li:first-child {border-left: 0;}
+.menu > li > a {    padding: 20px 30px;  font-size: 12px;  text-transform: uppercase;  color: ;  letter-spacing: 2px;}
+//#FEFDFD
+.menu > li > a.active, 
+.submenu a:hover {color: #ddbe86;}
+.menu .fa, 
+.submenu .fa {  margin-left: 5px;  color: inherit;}
+.submenu {  position: absolute;  z-index: 5;  min-width: 200px;  background: white;  border-top: 1px solid #CBCBCC;  border-left: 1px solid #CBCBCC;
+  border-right: 1px solid #CBCBCC;  visibility: hidden;  opacity: 0;   transform-origin: 0% 0%;  transform: rotateX(-90deg);  transition: .3s linear; }
+.submenu li {position: relative;}
+.submenu li a {  color: #282828;  padding: 10px 20px;  font-size: 13px;  border-bottom: 1px solid #CBCBCC;}
+.submenu .submenu {  position: absolute;  left: 100%;  top: -1px;  transition: .3s linear;}
+.menu li:hover > .submenu {  transform: rotateX(0deg);  visibility: visible;  opacity: 1;}
+
+
+
