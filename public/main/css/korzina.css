@@ -1,0 +1,33 @@
+
+.pic_img{height:100%;}
+
+
+.pic_div{height:100%;width:20%; float:left; margin:auto; display: table-cell; verticall-align: middle;}
+
+.razmeri_div2 {width:20%;  height:100%;text-align:center;float:left; margin:auto; display: table-cell; verticall-align: middle;}
+.cena_div {width:20%;  height:100%;text-align:center;float:left; margin:auto; display: table-cell; verticall-align: middle;}
+.kol_vo_div{width:20%; height:100%;text-align:center;float:left; margin:auto; display: table-cell; verticall-align: middle;}
+
+.button_div {width:20%;height:100%; float:left;text-align:center; margin:auto; display: table-cell; verticall-align: middle;}
+.button{text-align:center;}
+
+.minus {width:10px; float:left; margin: 3px;text-decoration:none;}
+.plus    {width:10px;  float:left; margin: 3px;text-decoration:none;}
+.kol_vo {width:20px; float:left;}
+
+
+.stolbec {height:150px; width:12%; vertical-align: middle; text-align:center;}
+
+.tovar_na_oplatu{background-color:cyan;}
+.tovar_bez_oplati{display:none;}
+.tovara_net{background-color:red;}
+			
+.span{display:none;}
+
+.net{display:none;}
+
+.cena_div_yes{background:red;}
+
+
+
+

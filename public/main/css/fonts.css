@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 10359; /* все что будет под заголовками */
+    src: url(css/10359/10359.ttf)  format('truetype');  /* Путь к файлу со шрифтом */
+	font-weight: normal; 
+    font-style: normal;
+   }
+@font-face {
+    font-family: 10360; /* для всех остальных заголовков */
+    src: url(css/10360/10360.ttf)   format('truetype'); /* Путь к файлу со шрифтом */
+	font-weight: normal; 
+    font-style: normal;
+   }
+@font-face {
+    font-family: 10930; /* Одежда обувь аксессуары и главная */
+    src: url(css/10930/10930.otf); /* Путь к файлу со шрифтом */
+   }
+@font-face {
+    font-family: 9581; /* для описания товаров  */
+    src: url(css/9581/9581.otf); /* Путь к файлу со шрифтом */
+   }

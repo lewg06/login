@@ -1,0 +1,69 @@
+<?php
+
+//echo 'INDEXPHTML';
+
+//echo __DIR__;
+//print_r($_SERVER);
+//require_once($_SERVER['DOCUMENT_ROOT'] . '..\application\Views\Index\Index.css');
+//include(__DIR__ . '\Index.css');
+
+
+
+ob_start();
+echo '<style type="text/css">';
+include(__DIR__ . '\Reg.css');
+
+echo '</style>';
+
+echo '<script type="text/javascript">';
+include (__DIR__ . '\Reg.js');
+echo '</script>';
+
+$css_js = ob_get_contents();
+
+
+ob_end_clean();
+
+
+
+//<link rel = "stylesheet" href="application/Views/Index/Index.css">
+//<link rel = "stylesheet" href="/Index.css">
+//<script type="text/javascript" src = "/application/Views/Index/Index.js"></script>
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<?php echo $css_js; ?>
+	<link href="/main/css/menu_main.css" rel="stylesheet"></link>
+  	<link href="/main/css/menu_filtr.css" rel="stylesheet"></link>
+	
+
+</head>
+<body>
+<div>
+<img src="/main/img/img/customized.png">
+</div>
+<div>
+</div>
+<form action="/reg" type="post">
+	<br>Введите имя пользователя
+	<input name="user" type="text">
+	<br>Введите пароль
+	<input name="pass" type="password">
+	<input name="submit" type="submit">
+</form>
+
+
+<div>text shablona</div>
+<?php echo $this->modelData; ?>
+
+
+</body>
+</html>

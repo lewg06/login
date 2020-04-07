@@ -1,0 +1,91 @@
+<?php
+
+//echo 'INDEXPHTML';
+
+//echo __DIR__;
+//print_r($_SERVER);
+//require_once($_SERVER['DOCUMENT_ROOT'] . '..\application\Views\Index\Index.css');
+//include(__DIR__ . '\Index.css');
+
+
+
+ob_start();
+echo '<style type="text/css">';
+include(__DIR__ . '\Reg.css');
+
+echo '</style>';
+
+echo '<script type="text/javascript">';
+include (__DIR__ . '\Reg.js');
+echo '</script>';
+
+echo '<link rel="stylesheet" href="/main/bootstrap4.3/css/bootstrap.css"  crossorigin="anonymous">';
+echo '<script src="/main/bootstrap4.3/js/bootstrap.js"  crossorigin="anonymous"></script>';
+echo '<script src="/main/bootstrap/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>';
+echo '<script src="/main/bootstrap4.3/js/bootstrap.bundle.js"  crossorigin="anonymous"></script>';
+
+
+
+$css_js = ob_get_contents();
+
+
+ob_end_clean();
+
+
+
+//<link rel = "stylesheet" href="application/Views/Index/Index.css">
+//<link rel = "stylesheet" href="/Index.css">
+//<script type="text/javascript" src = "/application/Views/Index/Index.js"></script>
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<?php echo $css_js; ?>
+	<link href="/main/css/menu_main.css" rel="stylesheet"></link>
+  	<link href="/main/css/menu_filtr.css" rel="stylesheet"></link>
+	
+
+</head>
+<body>
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col align-self-start">
+        </div>
+        <div class="col align-self-center">
+            <form action="/login" method="get">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Введите имя пользователя или email</label>
+                    <input class="form-control form-control-lg" type="text" name="login">
+                    <small id="emailHelp" class="form-text text-muted"Введите Ваш email</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Введите пароль</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col align-self-end">
+        </div>
+    </div>
+</div>
+
+
+<?php echo Sayt::$error; ?>
+
+
+</body>
+</html>

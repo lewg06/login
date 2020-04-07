@@ -1,0 +1,4 @@
+.div_karta:hover > div {visibility:visible;display: block;}
+	
+.div_karta {background:red;}
+.div_karta:hover > div {background:yellow;}

@@ -1,0 +1,87 @@
+<?php
+
+//echo 'INDEXPHTML';
+
+//echo __DIR__;
+//print_r($_SERVER);
+//require_once($_SERVER['DOCUMENT_ROOT'] . '..\application\Views\Index\Index.css');
+//include(__DIR__ . '\Index.css');
+
+
+
+ob_start();
+echo '<style type="text/css">';
+include(__DIR__ . '\Reg.css');
+
+echo '</style>';
+
+echo '<script type="text/javascript">';
+include (__DIR__ . '\Reg.js');
+echo '</script>';
+
+$css_js = ob_get_contents();
+
+
+ob_end_clean();
+
+
+
+//<link rel = "stylesheet" href="application/Views/Index/Index.css">
+//<link rel = "stylesheet" href="/Index.css">
+//<script type="text/javascript" src = "/application/Views/Index/Index.js"></script>
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<?php echo $css_js; ?>
+	<link href="/main/css/menu_main.css" rel="stylesheet"></link>
+  	<link href="/main/css/menu_filtr.css" rel="stylesheet"></link>
+	
+
+</head>
+<body>
+<div>
+<img src="/main/img/img/customized1.png">
+</div>
+<div>
+</div>
+<form action="/users/usersOborud" method="get" >
+	<button type='submit' >Приступить к вводу данных по оборудованию</button>
+</form>
+<form action="/users/adminCreateMenu" method="get" >
+	<button type='submit' >Создать Меню</button>
+</form>
+<form action="/users/adminEditMenu" method="get">
+	<button type="submit">Редактировать МЕНЮ</button>
+</form>
+
+<form action="/users/adminEditPribor" method="get" >
+	<button type='submit' >Добавить или редактировать оборудование</button>
+</form>
+<form action="/users/adminEditParam" method="get" >
+	<button type='submit' >Добавить или редактировать параметры оборудования</button>
+</form>
+<form action="/users/adminEditSoob" method="get" >
+	<button type='submit' >Добавить или редактировать сообщение</button>
+</form>
+
+<br>
+<br>
+<form action="/users/exit" method="get" >
+	<button type='submit' >Выход</button>
+</form>
+
+
+<div>text shablona</div>
+<?php echo $this->modelData; ?>
+
+
+</body>
+</html>
